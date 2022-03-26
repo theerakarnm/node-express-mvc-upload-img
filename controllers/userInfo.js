@@ -1,5 +1,5 @@
 const multer = require('multer');
-
+var path = require("path");
 
 
 const getUserName = (req, res) => {
@@ -15,11 +15,13 @@ const addUser = (req, res) => {
   const { name, lastName } = req.body;
   console.log(name, lastName);
 
+  //add to db here by ...
+
   res.send({messsage : 'User added'});
 }
 
 const showImg = (req, res) => {
-  const filePath =  '/Users/jametirakarn/Desktop/nodeServerLearn/assets/img/' + req.params.id;
+  const filePath =  `${process.cwd()}/assets/img/${req.params.id}`;
   res.sendFile(filePath);
 };
 
